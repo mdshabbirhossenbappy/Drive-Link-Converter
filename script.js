@@ -1,33 +1,47 @@
 function convertLink() {
-    var link = document.getElementById("driveLink").value;
-    var match = link.match(/\/d\/(.*?)\//);
+    const link = document.getElementById("driveLink").value;
+    const match = link.match(/[-\w]{25,}/);
 
     if (!match) {
-        alert("Invalid link");
+        alert("Please enter a valid Google Drive link.");
         return;
     }
 
-    var fileId = match[1];
-    var directLink = "https://drive.google.com/thumbnail?id=" + fileId + "&sz=w1000";
+    const fileId = match[0];
+    const directLink = `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
 
     document.getElementById("result").innerText = directLink;
-    document.querySelector(".result-box").style.display = "block";
+    document.getElementById("resultBox").style.display = "block";
 
-var img = document.getElementById("preview");
-var placeholder = document.getElementById("placeholder");
+    const img = document.getElementById("preview");
+    img.src = directLink;
+    img.style.display = "block";
+    
+    setTimeout(() => {
+        img.classList.add("show");
+    }, 100);
 
-img.src = directLink;
-img.style.display = "block";
-placeholder.style.display = "none";
+    document.getElementById("inputGroup").style.display = "none";
+}
+
+function resetConverter() {
+    document.getElementById("inputGroup").style.display = "block";
+    document.getElementById("resultBox").style.display = "none";
+    document.getElementById("driveLink").value = "";
+
+    const img = document.getElementById("preview");
+    img.classList.remove("show");
+    img.style.display = "none";
+    img.src = "";
 }
 
 function copyLink() {
-    var text = document.getElementById("result").innerText;
-
+    const text = document.getElementById("result").innerText;
     navigator.clipboard.writeText(text).then(() => {
-        document.getElementById("copyBtn").innerText = "Copied!";
+        const btn = document.getElementById("copyBtn");
+        btn.innerText = "Copied!";
         setTimeout(() => {
-            document.getElementById("copyBtn").innerText = "Copy";
+            btn.innerText = "Copy Link";
         }, 1500);
     });
 }

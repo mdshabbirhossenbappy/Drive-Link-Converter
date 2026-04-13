@@ -1,53 +1,51 @@
 <!DOCTYPE html>
 <bappy lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Drive Link Converter</title>
-
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drive Link Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body class="light core-body">
 
-<div class="toggle" onclick="toggleMode()">🌙 Dark</div>
+    <div class="toggle" onclick="toggleMode()">🌙 Dark</div>
 
-<div class="core-container">
+    <div class="core-container">
+        <h2>Drive Link Converter</h2>
 
-    <h2>Drive Link Converter</h2>
+        <div id="inputGroup">
+            <input type="text" id="driveLink" placeholder="Paste Google Drive link here">
+            <button onclick="convertLink()">Convert</button>
+        </div>
 
-    <input type="text" id="driveLink" placeholder="Paste Google Drive link here">
+        <div class="result-box" id="resultBox">
+            <p>Direct Link:</p>
+            <p id="result"></p>
+            <button id="copyBtn" onclick="copyLink()">Copy Link</button>
+            <button class="reset-btn" onclick="resetConverter()">Convert Another</button>
+        </div>
 
-    <button onclick="convertLink()">Convert</button>
-
-    <div class="result-box">
-        <p>Direct Link:</p>
-        <p id="result"></p>
-        <button id="copyBtn" onclick="copyLink()">Copy</button>
+        <img id="preview" alt="Preview will appear here">
     </div>
 
-    <img id="preview">
+    <div class="profile-icon" onclick="toggleProfile()">👤</div>
 
-</div>
-
-<div class="profile-icon" onclick="toggleProfile()">👤</div>
-
-<div class="profile-sidebar" id="profileSidebar">
-    <div class="profile-content">
-    <p><strong>Name: </strong> Md. Shabbir Hossen Bappy</p>
-    <p><strong>University:</strong> International Standard University</p>
-    <p><strong>Department:</strong> Computer Science & Engineering</p>
-    <div class="links">
-        <a href="https://facebook.com/md.shabbirhossen.bappy" target="_blank">Facebook</a> |
-        <a href="https://github.com/mdshabbirhossenbappy/" target="_blank">GitHub</a> |
-        <a href="mailto:0962320005101019@isu.ac.bd">Email</a> |
-        <a href="Tel:+8801830755445">Mobile</a>
-    </div>
+    <div class="profile-sidebar" id="profileSidebar">
+        <div class="profile-content">
+            <p><strong>Name: </strong> Md. Shabbir Hossen Bappy</p>
+            <p><strong>University:</strong> International Standard University</p>
+            <p><strong>Department:</strong> Computer Science & Engineering</p>
+            <div class="links">
+                <a href="https://facebook.com/md.shabbirhossen.bappy" target="_blank">Facebook</a> |
+                <a href="https://github.com/mdshabbirhossenbappy/" target="_blank">GitHub</a> |
+                <a href="mailto:0962320005101019@isu.ac.bd">Email</a> |
+                <a href="Tel:+8801830755445">Mobile</a>
+            </div>
         </div>
     </div>
-</div>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </bappy>
